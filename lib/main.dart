@@ -7,7 +7,6 @@ import 'package:formadziri/splash_screen.dart';
 import 'package:formadziri/text_fonts.dart';
 import 'package:get/get.dart';
 
-import 'BDD/Controllers/test2.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
