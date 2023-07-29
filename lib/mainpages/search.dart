@@ -15,8 +15,8 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  List<SubCate> filteredSearchItems = [];
-  List<SubCate> searchItems = [];
+  List<Category> filteredSearchItems = [];
+  List<Category> searchItems = [];
 TextEditingController searchController = TextEditingController();
   @override
   void initState() {
@@ -24,13 +24,12 @@ TextEditingController searchController = TextEditingController();
     fetchAndSetSubCategories();
   }
 
-  Future<void> fetchAndSetSubCategories() async {
+ Future<void> fetchAndSetSubCategories() async {
     try {
-      List<SubCate> subCategories = await GetDattApi().getSubCategories();
+      List<Category> subCategories = await GetDattApi().getCategorie();
       setState(() {
         searchItems = subCategories;
-
-        filteredSearchItems = subCategories;
+        filteredSearchItems = subCategories; 
       });
     } catch (error) {
       print('Error fetching subcategories: $error');
@@ -38,7 +37,7 @@ TextEditingController searchController = TextEditingController();
   }
 
   void _filterSearchResults(String query) {
-    List<SubCate> tempList = [];
+    List<Category> tempList = [];
     if (query.isNotEmpty) {
       tempList = searchItems
           .where(

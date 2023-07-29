@@ -15,7 +15,7 @@ class SearchData extends StatefulWidget {
     Key? key,
     required this.dataSub,
   }) : super(key: key);
-  final SubCate  dataSub;
+  final Category  dataSub;
 
   @override
   State<SearchData> createState() => _SearchDataState();
@@ -30,15 +30,14 @@ class _SearchDataState extends State<SearchData> {
   @override
   void initState() {
     super.initState();
-    filteredSubCat =  widget.dataSub.course!;
+    filteredSubCat =  widget.dataSub.subCategories![0].course ?? [];
   }
 
   void _filterSubCat(String query) {
     setState(() {
       if (query.isEmpty) {
-        filteredSubCat = widget.dataSub.course!;
-      } else {
-        filteredSubCat = widget.dataSub.course!
+        filteredSubCat = widget.dataSub.subCategories![0].course ?? [];
+      } else {widget.dataSub.subCategories![0].course ?? []
                 ?.where((Course) =>
                     Course.title!.toLowerCase().contains(query.toLowerCase()))
                 .toList() ??
@@ -48,7 +47,7 @@ class _SearchDataState extends State<SearchData> {
   }
 
   Widget build(BuildContext context) {
-    print(widget.dataSub.course![0].id);
+   
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
