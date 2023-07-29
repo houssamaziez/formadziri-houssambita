@@ -1,42 +1,44 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:formadziri/BDD/Model/Courses.dart';
-import 'package:formadziri/BDD/Model/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:formadziri/categories/cat_comp.dart';
+import 'package:formadziri/BDD/Model/Courses.dart';
+import 'package:formadziri/BDD/Model/home.dart';
 
-import 'course_column.dart';
 
-class DesignCat extends StatefulWidget {
-  const DesignCat({
+import '../categories/course_column.dart';
+
+class SearchData extends StatefulWidget {
+  
+
+  const SearchData({
     Key? key,
-    required this.datacategorie,
+    required this.dataSub,
   }) : super(key: key);
-  final Category datacategorie;
+  final SubCate  dataSub;
 
   @override
-  State<DesignCat> createState() => _DesignCatState();
+  State<SearchData> createState() => _SearchDataState();
 }
- 
-class _DesignCatState extends State<DesignCat> {
+
+class _SearchDataState extends State<SearchData> {
   @override
-  List<Course> filteredSubCategories = [];
+  List<Course> filteredSubCat = [];
 
   TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    filteredSubCategories = widget.datacategorie.subCategories![0].course!;
+    filteredSubCat =  widget.dataSub.course!;
   }
 
-  void _filterSubCategories(String query) {
+  void _filterSubCat(String query) {
     setState(() {
       if (query.isEmpty) {
-        filteredSubCategories = widget.datacategorie.subCategories![0].course!;
+        filteredSubCat = widget.dataSub.course!;
       } else {
-        filteredSubCategories = widget.datacategorie.subCategories![0].course!
+        filteredSubCat = widget.dataSub.course!
                 ?.where((Course) =>
                     Course.title!.toLowerCase().contains(query.toLowerCase()))
                 .toList() ??
@@ -46,6 +48,7 @@ class _DesignCatState extends State<DesignCat> {
   }
 
   Widget build(BuildContext context) {
+    print(widget.dataSub.course![0].id);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -58,7 +61,7 @@ class _DesignCatState extends State<DesignCat> {
           ),
         ),
         title: Text(
-          widget.datacategorie.name! + " in Formadziri",
+          widget.dataSub.name! + " in Formadziri",
           style: GoogleFonts.poppins(
             fontSize: 24,
             fontWeight: FontWeight.w700,
@@ -76,7 +79,7 @@ class _DesignCatState extends State<DesignCat> {
               ),
               child: TextField(
                 controller: searchController,
-                onChanged: _filterSubCategories,
+                onChanged: _filterSubCat,
                 decoration: InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 15, horizontal: 14),
@@ -132,8 +135,8 @@ class _DesignCatState extends State<DesignCat> {
                 ),
               ),
             ),
-            for (Course datasub in filteredSubCategories)
-              CourseColumn(datasub: datasub),
+            for (Course data in filteredSubCat)
+              CourseColumn(datasub: data),
             const SizedBox(
               height: 20,
             ),
