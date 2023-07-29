@@ -29,34 +29,38 @@ class _HeroSecState extends State<HeroSec> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<Coursefirebase>(
-        stream: _courseBloc.courseStream,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return waitdataNewoCores();
-          } else if (snapshot.hasData) {
-            Coursefirebase course = snapshot.data!;
-            return Container();
-            // return Column(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Image.network(course.image),
-            //     SizedBox(height: 20),
-            //     Text(
-            //       course.name,
-            //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            //     ),
-            //     SizedBox(height: 20),
-            //     Text("Course ID: ${course.id}"),
-            //   ],
-            // );
-          } else {
-            return Center(
-              child: Text("Failed to fetch course data."),
-            );
-          }
-        },
-      ),
+      body: waitdataNewoCores(),
+    );
+  }
+
+  StreamBuilder<Coursefirebase> newMethod() {
+    return StreamBuilder<Coursefirebase>(
+      stream: _courseBloc.courseStream,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return waitdataNewoCores();
+        } else if (snapshot.hasData) {
+          Coursefirebase course = snapshot.data!;
+          return Container();
+          // return Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Image.network(course.image),
+          //     SizedBox(height: 20),
+          //     Text(
+          //       course.name,
+          //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          //     ),
+          //     SizedBox(height: 20),
+          //     Text("Course ID: ${course.id}"),
+          //   ],
+          // );
+        } else {
+          return Center(
+            child: Text("Failed to fetch course data."),
+          );
+        }
+      },
     );
   }
 }
