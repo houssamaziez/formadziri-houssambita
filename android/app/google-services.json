@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "897343919494",
+    "project_id": "formadziri-f5eb7",
+    "storage_bucket": "formadziri-f5eb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897343919494:android:6fc36daa233ddfe6348807",
+        "android_client_info": {
+          "package_name": "com.example.formadziri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897343919494-5im1mck2fsq8msdhv8gjikvcd4lap1so.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8vTWA45erGHFaA9OBwx1zXV7f5IlXd0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897343919494-5im1mck2fsq8msdhv8gjikvcd4lap1so.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

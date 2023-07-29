@@ -1,4 +1,4 @@
-
+import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:formadziri/BDD/Api/UrlApi.dart';
@@ -138,8 +138,9 @@ class GetDattApi {
 
   //____________________________________________________________________________
 
-  Future<List<sessions>> getSessionData( int id ) async {
-    final List<dynamic> datasessions = await fetchData(Url: "https://formadziri-admin.com/api/sessions/$id");
+  Future<List<sessions>> getSessionData(int id) async {
+    final List<dynamic> datasessions =
+        await fetchData(Url: "https://formadziri-admin.com/api/sessions/$id");
     return datasessions.map((item) => sessions.fromJson(item)).toList();
   }
 
@@ -156,4 +157,37 @@ class GetDattApi {
         .map((item) => SubCategoriesSections.fromJson(item))
         .toList();
   }
+}
+
+class CourseBloc {
+  final _courseStreamController = StreamController<Coursefirebase>();
+
+  Stream<Coursefirebase> get courseStream => _courseStreamController.stream;
+
+  void dispose() {
+    _courseStreamController.close();
+  }
+
+  void fetchCourse() {
+    // Here you can fetch the course data from wherever you have it (e.g., Firebase Firestore)
+    // For demonstration purposes, I'm using the data you provided directly.
+    Coursefirebase course = Coursefirebase(
+      id: "12",
+      image: "https://formadziri-admin.com/images/courses/1690463059.png",
+      name: "Level A1 English (Beginner)",
+    );
+    _courseStreamController.sink.add(course);
+  }
+}
+
+class Coursefirebase {
+  final String id;
+  final String image;
+  final String name;
+
+  Coursefirebase({
+    required this.id,
+    required this.image,
+    required this.name,
+  });
 }
