@@ -1,0 +1,211 @@
+{
+
+"adduptoyourself": "Add up to Yourself",
+"@adduptoyourself": {
+    "description": "Add up to Yourself"},
+
+
+"intro": "Join us to learn, teach and grow with creative Algerian tutors all in your house.",
+"@intro": {
+    "description": "intro"},
+
+
+"getStarted": "Get Started",
+"@getStarted": {
+    "description": "getStarted"},
+
+
+"takeoneononecourses": "Take one on one courses",
+"@takeoneononecourses": {
+    "description": "Take one on one courses"},
+
+
+"fktc": "From knitting to coding and everything in between.",
+"@fktc": {
+    "description": "From knitting to coding\nand everything in between."},
+
+
+"learnfromthebest": "Learn from the best",
+"@learnfromthebest": {
+    "description": "Learn from the best"},
+
+
+"onlineLearning": "Online learning is always fun with the right tutor for you.",
+"@onlineLearning": {
+    "description": "OnlineLearning"},
+
+
+"joinCommunity": "Join a community of learners",
+"@joinCommunity": {
+    "description": "JoinCommunity"},
+
+
+"connectwith": "Connect with learners from around Algeria!",
+"@connectwith": {
+    "description": "Connectwith"},
+
+
+"welcomeback": "Welcome back!",
+"@welcomeback": {
+    "description": "welcome back"},
+
+
+"email": "Email",
+"@email": {
+    "description": "email"},
+
+
+"password": "Password",
+"@password": {
+    "description": "password"},
+
+
+"login": "Log in",
+"@login": {
+    "description": "login"},
+
+
+"forgotpassword": "Forgot Password?",
+"@forgotpassword": {
+    "description": "forgotpassword"},
+
+
+"or": "Or",
+"@or": {
+    "description": "or"},
+
+
+"donthaveanaccount": "Don't have an account?",
+"@donthaveanaccount": {
+    "description": "donthaveanaccount"},
+
+
+"resetyourpassword": "Reset your password",
+"@resetyourpassword": {
+    "description": "Reset your password"},
+
+
+"send": "Send",
+"@send": {
+    "description": "Send"},
+
+
+"anemailhasbeensentto": "An email has been sent to:",
+"@anemailhasbeensentto:": {
+    "description": "An email has been sent to:"},
+
+
+"createanaccount": "Create an account",
+"@createanaccount": {
+    "description": "Create an account"},
+
+
+
+"confirmpassword": "Confirm Password",
+"@confirmpassword": {
+    "description": "Confirm Password"},
+
+
+
+"iagree": "I agree to terms and conditions.",
+"@iagree": {
+    "description": "I agree to terms and conditions."},
+
+
+
+"signup": "Sign up",
+"@signup": {
+    "description": "Sign up"},
+
+
+
+
+"alreadyhaveanaccount": "Already have an account?",
+"@alreadyhaveanaccount": {
+    "description": "Already have an account?"},
+
+"home": "Home",
+"@home": {
+    "description": "Home"},
+
+
+"search": "Search",
+"@search": {
+    "description": "Search"},
+
+
+"podcasts": "Podcasts",
+"@podcasts": {
+    "description": "Podcasts"},
+
+
+"profile": "Profile",
+"@profile": {
+    "description": "Profile"},
+
+
+"editprofile": "Edit Profile",
+"@editprofile": {
+    "description": "Edit Profile"},
+
+
+"notifications": "Notifications",
+"@notifications": {
+    "description": "Notifications"},
+
+
+"appnotifications": "App notifications",
+"@appnotifications": {
+    "description": "App notifications"},    
+
+
+"language": "Language",
+"@language": {
+    "description": "Language"},   
+
+
+
+"savedpodcasts": "Saved podcasts",
+"@savedpodcasts": {
+    "description": "Saved podcasts"}, 
+
+
+
+"about": "About",
+"@about": {
+    "description": "About"}, 
+
+
+
+"faq": "Frequently asked questions",
+"@faq": {
+    "description": "Frequently asked questions"}, 
+
+
+"sharetheapp": "Share the app",
+"@sharetheapp": {
+    "description": "Share the app"}, 
+
+
+
+"logout": "Logout",
+"@logout": {
+    "description": "Logout"},
+
+
+"applang": "App Language",
+"@applang": {"description": "App Language"},
+
+
+"newcourses": "New courses in design!",
+"@newcourses": {"description": "New courses in design!"},
+
+
+"starting": "Starting from 4000 DZD, check out a range of design courses and improve your skillset.",
+"@starting": {"description": "Starting from 4000 DZD, check out a range of design courses and improve your skillset."},
+
+
+"checkthem": "Check them out!",
+"@checkthem": {"description": "Check them out!"}
+
+}
