@@ -200,9 +200,7 @@ StreamBuilder newMethod() {
         );
       } else {
         // Data snapshot is not yet available (initial load)
-        return Center(
-          child: CircularProgressIndicator(),
-        );
+        return waitdataNewoCores();
       }
     },
   );
