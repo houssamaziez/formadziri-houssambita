@@ -10,6 +10,7 @@ import '../mainpages/bottom_bar.dart';
 class UploadPhoto extends StatefulWidget {
   const UploadPhoto({Key? key, this.name}) : super(key: key);
   final name;
+  // ss
   @override
   State<UploadPhoto> createState() => _UploadPhotoState();
 }
