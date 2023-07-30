@@ -15,31 +15,13 @@ class UploadPhoto extends StatefulWidget {
 }
 
 class _UploadPhotoState extends State<UploadPhoto> {
-   File? _image;
-
-
-
-
-Future<void> _getImage() async {
-  XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
-  if (image != null) {
-    final appDir = await getTemporaryDirectory();
-    final fileName = image.path.split('/').last;
-    final savedImage = File('${appDir.path}/$fileName');
-    await savedImage.writeAsBytes(await image.readAsBytes());
-
+  Future<void> _getImage() async {
+    XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
     setState(() {
-      _image = savedImage;
-      userimage = savedImage.path;
+      print(image!.path);
+      userimage = FileImage(File(userimage)).file.path;
     });
   }
-}
-
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -86,11 +68,11 @@ Future<void> _getImage() async {
           //             )
           //           : Container()),
           // ),
-     Center(
+          Center(
             child: Container(
               height: 140,
               width: 140,
-              decoration: _image == null
+              decoration: userimage == null
                   ? BoxDecoration(
                       color: Color(0xFFCFE5CD),
                       borderRadius: BorderRadius.all(Radius.circular(100)),
@@ -99,13 +81,11 @@ Future<void> _getImage() async {
                       color: Color(0xFFCFE5CD),
                       borderRadius: BorderRadius.all(Radius.circular(100)),
                       image: DecorationImage(
-                        image: _image != null
-                            ? FileImage(_image!) as ImageProvider<Object>
-                            : AssetImage(userimage),
+                        image: AssetImage(File(userimage).path),
                         fit: BoxFit.cover,
                       ),
                     ),
-              child: _image == null
+              child: userimage == null
                   ? Icon(
                       Icons.camera_alt_rounded,
                       size: (45),

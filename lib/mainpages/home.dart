@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:formadziri/BDD/Model/TopCategorie.dart';
 import 'package:formadziri/home_comp/titles.dart';
@@ -52,7 +54,7 @@ class Home extends StatelessWidget {
               child: IconButton(
                 onPressed: (() {}),
                 icon: Image.asset(
-                  userimage,
+                  File(userimage).path,
                   width: 50,
                   height: 50,
                 ),
@@ -69,7 +71,6 @@ class Home extends StatelessWidget {
               LangRow(),
               FutureBuilder<List<SubCategoriesSections>>(
                 future: GetDattApi().getSubCategoriesSectionsData(),
-             
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Padding(
