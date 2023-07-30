@@ -15,25 +15,25 @@ class UploadPhoto extends StatefulWidget {
 }
 
 class _UploadPhotoState extends State<UploadPhoto> {
-   File? _image;
 
 
 
 
-Future<void> _getImage() async {
-  XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
-  if (image != null) {
-    final appDir = await getTemporaryDirectory();
-    final fileName = image.path.split('/').last;
-    final savedImage = File('${appDir.path}/$fileName');
-    await savedImage.writeAsBytes(await image.readAsBytes());
 
-    setState(() {
-      _image = savedImage;
-      userimage = savedImage.path;
-    });
+  Future<void> _getImage() async {
+    XFile? pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      final appDir = await getTemporaryDirectory();
+      final fileName = pickedImage.path.split('/').last;
+      final savedImage = File('${appDir.path}/$fileName');
+      await savedImage.writeAsBytes(await pickedImage.readAsBytes());
+
+      setState(() {
+        userimage = savedImage.path;
+      });
+    }
   }
-}
+
 
 
 
@@ -65,55 +65,28 @@ Future<void> _getImage() async {
           const SizedBox(
             height: 15,
           ),
-          // Center(
-          //   child: Container(
-          //       height: 140,
-          //       width: 140,
-          //       decoration: userimage == ""
-          //           ? BoxDecoration(
-          //               color: Color(0xFFCFE5CD),
-          //               borderRadius: BorderRadius.all(Radius.circular(100)),
-          //             )
-          //           : BoxDecoration(
-          //               color: Color(0xFFCFE5CD),
-          //               borderRadius: BorderRadius.all(Radius.circular(100)),
-          //               image: DecorationImage(image: AssetImage(userimage))),
-          //       child: userimage == ""
-          //           ? const Icon(
-          //               Icons.camera_alt_rounded,
-          //               size: (45),
-          //               color: FormaColors.mediumgreen,
-          //             )
-          //           : Container()),
-          // ),
-     Center(
+          Center(
             child: Container(
-              height: 140,
-              width: 140,
-              decoration: _image == null
-                  ? BoxDecoration(
-                      color: Color(0xFFCFE5CD),
-                      borderRadius: BorderRadius.all(Radius.circular(100)),
-                    )
-                  : BoxDecoration(
-                      color: Color(0xFFCFE5CD),
-                      borderRadius: BorderRadius.all(Radius.circular(100)),
-                      image: DecorationImage(
-                        image: _image != null
-                            ? FileImage(_image!) as ImageProvider<Object>
-                            : AssetImage(userimage),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-              child: _image == null
-                  ? Icon(
-                      Icons.camera_alt_rounded,
-                      size: (45),
-                      color: Colors.green,
-                    )
-                  : Container(),
-            ),
+                height: 140,
+                width: 140,
+                decoration: userimage == ""
+                    ? BoxDecoration(
+                        color: Color(0xFFCFE5CD),
+                        borderRadius: BorderRadius.all(Radius.circular(100)),
+                      )
+                    : BoxDecoration(
+                        color: Color(0xFFCFE5CD),
+                        borderRadius: BorderRadius.all(Radius.circular(100)),
+                        image: DecorationImage(image: AssetImage(userimage))),
+                child: userimage == ""
+                    ? const Icon(
+                        Icons.camera_alt_rounded,
+                        size: (45),
+                        color: FormaColors.mediumgreen,
+                      )
+                    : Container()),
           ),
+
 
           const SizedBox(
             height: 15,
@@ -233,7 +206,7 @@ Future<void> _getImage() async {
                   });
                 },
                 child: Image.asset(imag)),
-          )
+               )
       ],
     );
   }
