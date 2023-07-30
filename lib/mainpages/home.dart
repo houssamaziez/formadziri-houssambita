@@ -69,7 +69,7 @@ class Home extends StatelessWidget {
               LangRow(),
               FutureBuilder<List<SubCategoriesSections>>(
                 future: GetDattApi().getSubCategoriesSectionsData(),
-                // you can layla
+             
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Padding(

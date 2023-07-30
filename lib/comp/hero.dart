@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:formadziri/categories/course_column.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../BDD/Controllers/test2.dart';
+import '../categories/design_cat.dart';
 
 class HeroSdec extends StatefulWidget {
   HeroSdec({Key? key}) : super(key: key);
@@ -79,7 +81,7 @@ Column waitdataNewoCores() {
         height: 10,
       ),
       Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
+        padding:  EdgeInsets.only(left: 16, right: 16),
         child: FilledButton(
           style:
               FilledButton.styleFrom(backgroundColor: const Color(0xFF93BD8F)),
@@ -88,7 +90,7 @@ Column waitdataNewoCores() {
             //   context,
             //   MaterialPageRoute(
             //     builder: (context) {
-            //       return  DesignCat(); //
+            //       return  DesignCat(datacategorie: ,); //
             //     },
             //   ),
             // );
@@ -175,15 +177,15 @@ StreamBuilder newMethod() {
                 style: FilledButton.styleFrom(
                     backgroundColor: const Color(0xFF93BD8F)),
                 onPressed: () {
-                  // snapshot.data["id"].toString()
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return  DesignCat(); //
-                  //     },
-                  //   ),
-                  // );
+                  //snapshot.data["id"].toString();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return  CourseColumn(datasub:snapshot.data["id"] ,); //
+                      },
+                    ),
+                  );
                 },
                 child: Text(
                   "checkthem",
