@@ -6,12 +6,13 @@ import 'package:formadziri/BDD/Controllers/test2.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 import '../BDD/Controllers/CourseExController.dart';
 import '../BDD/Model/Courses.dart';
 import '../payment/payment.dart';
 
-class CourseEx extends StatelessWidget {
-  const CourseEx({
+class CourseID extends StatelessWidget {
+  const CourseID({
     Key? key,
     required this.idsubcategorie,
   }) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:formadziri/categories/course_column.dart';
+import 'package:formadziri/courses/couresid.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -182,7 +183,7 @@ StreamBuilder newMethod() {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return  CourseColumn(datasub:snapshot.data["id"] ,); //
+                        return  CourseID(idsubcategorie:snapshot.data["id"] ,); //
                       },
                     ),
                   );
