@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:formadziri/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../mainpages/bottom_bar.dart';
 
@@ -12,6 +15,32 @@ class UploadPhoto extends StatefulWidget {
 }
 
 class _UploadPhotoState extends State<UploadPhoto> {
+   File? _image;
+
+
+
+
+Future<void> _getImage() async {
+  XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  if (image != null) {
+    final appDir = await getTemporaryDirectory();
+    final fileName = image.path.split('/').last;
+    final savedImage = File('${appDir.path}/$fileName');
+    await savedImage.writeAsBytes(await image.readAsBytes());
+
+    setState(() {
+      _image = savedImage;
+      userimage = savedImage.path;
+    });
+  }
+}
+
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,27 +65,56 @@ class _UploadPhotoState extends State<UploadPhoto> {
           const SizedBox(
             height: 15,
           ),
-          Center(
+          // Center(
+          //   child: Container(
+          //       height: 140,
+          //       width: 140,
+          //       decoration: userimage == ""
+          //           ? BoxDecoration(
+          //               color: Color(0xFFCFE5CD),
+          //               borderRadius: BorderRadius.all(Radius.circular(100)),
+          //             )
+          //           : BoxDecoration(
+          //               color: Color(0xFFCFE5CD),
+          //               borderRadius: BorderRadius.all(Radius.circular(100)),
+          //               image: DecorationImage(image: AssetImage(userimage))),
+          //       child: userimage == ""
+          //           ? const Icon(
+          //               Icons.camera_alt_rounded,
+          //               size: (45),
+          //               color: FormaColors.mediumgreen,
+          //             )
+          //           : Container()),
+          // ),
+     Center(
             child: Container(
-                height: 140,
-                width: 140,
-                decoration: userimage == ""
-                    ? BoxDecoration(
-                        color: Color(0xFFCFE5CD),
-                        borderRadius: BorderRadius.all(Radius.circular(100)),
-                      )
-                    : BoxDecoration(
-                        color: Color(0xFFCFE5CD),
-                        borderRadius: BorderRadius.all(Radius.circular(100)),
-                        image: DecorationImage(image: AssetImage(userimage))),
-                child: userimage == ""
-                    ? const Icon(
-                        Icons.camera_alt_rounded,
-                        size: (45),
-                        color: FormaColors.mediumgreen,
-                      )
-                    : Container()),
+              height: 140,
+              width: 140,
+              decoration: _image == null
+                  ? BoxDecoration(
+                      color: Color(0xFFCFE5CD),
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                    )
+                  : BoxDecoration(
+                      color: Color(0xFFCFE5CD),
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                      image: DecorationImage(
+                        image: _image != null
+                            ? FileImage(_image!) as ImageProvider<Object>
+                            : AssetImage(userimage),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+              child: _image == null
+                  ? Icon(
+                      Icons.camera_alt_rounded,
+                      size: (45),
+                      color: Colors.green,
+                    )
+                  : Container(),
+            ),
           ),
+
           const SizedBox(
             height: 15,
           ),
@@ -65,7 +123,9 @@ class _UploadPhotoState extends State<UploadPhoto> {
                 padding: const EdgeInsets.only(
                     left: 18, right: 18, top: 10, bottom: 10),
                 backgroundColor: const Color(0xFFCFE5CD)),
-            onPressed: () {},
+            onPressed: () {
+              _getImage();
+            },
             child: Text(
               "Upload a photo",
               style: GoogleFonts.poppins(
@@ -156,12 +216,11 @@ class _UploadPhotoState extends State<UploadPhoto> {
   Widget get() {
     return GridView.count(
       physics: NeverScrollableScrollPhysics(),
-
       shrinkWrap: true,
-      crossAxisCount: 4, // Number of columns in the grid
-      crossAxisSpacing: 1, // Spacing between columns
-      mainAxisSpacing: 1, // Spacing between rows
-      padding: EdgeInsets.all(16), // Optional padding around the grid
+      crossAxisCount: 4,
+      crossAxisSpacing: 1,
+      mainAxisSpacing: 1,
+      padding: EdgeInsets.all(16),
       children: [
         for (String imag in imags)
           Padding(

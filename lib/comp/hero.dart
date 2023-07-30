@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:formadziri/categories/course_column.dart';
+
 import 'package:formadziri/courses/couresid.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../BDD/Controllers/test2.dart';
-import '../categories/design_cat.dart';
+
 
 class HeroSdec extends StatefulWidget {
   HeroSdec({Key? key}) : super(key: key);
