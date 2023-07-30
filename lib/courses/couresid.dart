@@ -26,13 +26,13 @@ class CourseID extends StatelessWidget {
                 future: GetDattApi().getcoursBYId(idsubcategorie),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
                     final course = snapshot.data;
                     if (course == null || course.id == null) {
-                      return Center(child: Text('Course not found.'));
+                      return const Center(child: Text('Course not found.'));
                     } else {
                       return CourseEx(
                         course: course,
