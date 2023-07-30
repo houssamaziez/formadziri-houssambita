@@ -54,6 +54,18 @@ class GetDattApi {
   }
 
   //____________________________________________________________________________
+  Future<Course> getcoursBYId(int subcategoryId) async {
+    // Replace this with your API endpoint
+
+    final dio = Dio();
+    final response =
+        await dio.get('https://formadziri-admin.com/api/courses/12');
+
+    // Check if the request was successful
+    var data = Course.fromJson(response.data["course"]);
+    // Process the data here
+    return data;
+  }
 
   Future<Course> getcoursesub(int subcategoryId) async {
     final dat = await getdata(

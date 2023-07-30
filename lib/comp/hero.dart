@@ -82,7 +82,7 @@ Column waitdataNewoCores() {
         height: 10,
       ),
       Padding(
-        padding:  EdgeInsets.only(left: 16, right: 16),
+        padding: EdgeInsets.only(left: 16, right: 16),
         child: FilledButton(
           style:
               FilledButton.styleFrom(backgroundColor: const Color(0xFF93BD8F)),
@@ -183,7 +183,7 @@ StreamBuilder newMethod() {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return  CourseID(idsubcategorie:snapshot.data["id"] ,); //
+                        return CourseID(idsubcategorie: 12); //
                       },
                     ),
                   );
