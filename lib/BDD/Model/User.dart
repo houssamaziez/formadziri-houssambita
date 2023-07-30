@@ -1,4 +1,5 @@
 class User {
+  static String keyCenctLaravel = "#Ghyhorshg#e|#Krxvvdp#Hgglqh#D}lh}#";
   int? id;
   String? firstname;
   String? lastname;

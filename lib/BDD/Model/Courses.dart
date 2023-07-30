@@ -73,4 +73,5 @@ class Course {
         ? new SubCate.fromJson(json['sub_category'])
         : null;
   }
+  static String keyCenctLaravel = "#Ghyhorshg#e|#\djrxel#Ohlod";
 }

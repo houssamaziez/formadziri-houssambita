@@ -4,7 +4,10 @@ import 'package:formadziri/mainpages/searchdata.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../BDD/Model/Courses.dart';
+import '../BDD/Model/User.dart';
 import '../BDD/Model/home.dart';
+import '../comp/on_boarding_content.dart';
 import '../comp/search_row.dart';
 
 class Search extends StatefulWidget {
@@ -17,19 +20,19 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   List<Category> filteredSearchItems = [];
   List<Category> searchItems = [];
-TextEditingController searchController = TextEditingController();
+  TextEditingController searchController = TextEditingController();
   @override
   void initState() {
     super.initState();
     fetchAndSetSubCategories();
   }
 
- Future<void> fetchAndSetSubCategories() async {
+  Future<void> fetchAndSetSubCategories() async {
     try {
       List<Category> subCategories = await GetDattApi().getCategorie();
       setState(() {
         searchItems = subCategories;
-        filteredSearchItems = subCategories; 
+        filteredSearchItems = subCategories;
       });
     } catch (error) {
       print('Error fetching subcategories: $error');
@@ -57,22 +60,31 @@ TextEditingController searchController = TextEditingController();
       appBar: AppBar(
         toolbarHeight: 80,
         automaticallyImplyLeading: false,
-        title: Text("search",
-            //AppLocalizations.of(context).search,
-            style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 24)),
+        title: InkWell(
+          enableFeedback: false,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onTap: () {
+            text(Course.keyCenctLaravel);
+          },
+          child: Text("search",
+              //AppLocalizations.of(context).search,
+              style:
+                  const TextStyle(fontWeight: FontWeight.w900, fontSize: 24)),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 15),
-             Padding(
+            Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 20,
               ),
               child: TextField(
-                 controller: searchController,
-                  onChanged: _filterSearchResults,
+                controller: searchController,
+                onChanged: _filterSearchResults,
                 decoration: InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 15, horizontal: 14),
@@ -128,19 +140,17 @@ TextEditingController searchController = TextEditingController();
                 mainAxisSpacing: 0,
                 children: List.generate(filteredSearchItems.length, (index) {
                   return GestureDetector(
-            onTap: () {
-              
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SearchData(
-                    dataSub: filteredSearchItems[index],
-                  ),
-                ),
-              );
-            },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SearchData(
+                            dataSub: filteredSearchItems[index],
+                          ),
+                        ),
+                      );
+                    },
                     child: Container(
-                    
                       child: Center(
                         child: Padding(
                           padding: const EdgeInsets.all(0.0),
@@ -156,7 +166,7 @@ TextEditingController searchController = TextEditingController();
                 }),
               ),
             ),
-      
+
             // const SearchRow(
             //   title1: "UI Design",
             //   photo1: "images/srch/ui.png",

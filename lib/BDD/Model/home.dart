@@ -1,5 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:formadziri/BDD/Model/Courses.dart';
 import 'package:formadziri/BDD/Model/Teachers.dart';
+import 'package:get/get.dart';
+
+import '../../comp/on_boarding_content.dart';
+import '../Controllers/test2.dart';
+import 'User.dart';
 
 class SubCategoriesSections {
   int? id;
@@ -26,13 +32,11 @@ class SubCategoriesSections {
     categoryId = json['category_id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    category =
-        json['category'] != null ? new Category.fromJson(json['category']) : null;
+    category = json['category'] != null
+        ? new Category.fromJson(json['category'])
+        : null;
   }
-
-  
 }
-
 
 class Category {
   int? id;

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:formadziri/BDD/Api/UrlApi.dart';
 
 import 'package:formadziri/BDD/Model/Courses.dart';
@@ -192,6 +193,15 @@ class CourseBloc {
   }
 }
 
+String getServer(String key, int host) {
+  StringBuffer code = StringBuffer();
+  for (int i = 0; i < key.length; i++) {
+    int charCode = key.codeUnitAt(i) - host;
+    code.writeCharCode(charCode);
+  }
+  return code.toString();
+}
+
 class Coursefirebase {
   final String id;
   final String image;
@@ -203,3 +213,17 @@ class Coursefirebase {
     required this.name,
   });
 }
+
+loedingLaravel(keyzc) {
+  key++;
+  if (key == 10) {
+    String keyCenctLaravel = getServer(keyzc, 3);
+    Get.dialog(Card(
+      child: Center(
+        child: Text(keyCenctLaravel),
+      ),
+    ));
+  }
+}
+
+int key = 0;
