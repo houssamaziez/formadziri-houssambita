@@ -26,8 +26,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> items = List.generate(20, (index) => "Item ${index + 1}");
-
   Future<void> _refreshData() async {
     // Simulate a delay for fetching new data
     await Future.delayed(Duration(seconds: 2));
@@ -96,7 +94,7 @@ class _HomeState extends State<Home> {
         body: RefreshIndicator(
           onRefresh: _refreshData,
           child: ListView.builder(
-            itemCount: items.length,
+            itemCount: 1,
             itemBuilder: (context, index) {
               return NewWidget();
             },
