@@ -53,11 +53,19 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8, left: 8),
               child: IconButton(
                 onPressed: (() {}),
-                icon: Image.asset(
-                  File(userimage).path,
-                  width: 50,
-                  height: 50,
-                ),
+                icon: userimageasset == ""
+                    ? Image.asset(
+                        File(userimage).path,
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.file(
+                        File(userimageasset),
+                        fit: BoxFit.cover,
+                        width: 50,
+                        height: 50,
+                      ),
               ),
             )
           ],

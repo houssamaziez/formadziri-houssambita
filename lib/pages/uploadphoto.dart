@@ -10,7 +10,6 @@ import '../mainpages/bottom_bar.dart';
 class UploadPhoto extends StatefulWidget {
   const UploadPhoto({Key? key, this.name}) : super(key: key);
   final name;
-  // ss
   @override
   State<UploadPhoto> createState() => _UploadPhotoState();
 }
@@ -20,7 +19,7 @@ class _UploadPhotoState extends State<UploadPhoto> {
     XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
     setState(() {
       print(image!.path);
-      userimage = FileImage(File(userimage)).file.path;
+      userimageasset = image.path;
     });
   }
 
@@ -82,7 +81,10 @@ class _UploadPhotoState extends State<UploadPhoto> {
                       color: Color(0xFFCFE5CD),
                       borderRadius: BorderRadius.all(Radius.circular(100)),
                       image: DecorationImage(
-                        image: AssetImage(File(userimage).path),
+                        image: userimageasset != ""
+                            ? FileImage(File(userimageasset))
+                                as ImageProvider<Object>
+                            : AssetImage(File(userimage).path),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -210,6 +212,7 @@ class _UploadPhotoState extends State<UploadPhoto> {
                 onTap: () {
                   setState(() {
                     userimage = imag;
+                    userimageasset = "";
                     print(userimage);
                   });
                 },
@@ -235,3 +238,4 @@ List<String> imags = [
   "images/avatars/12.png",
 ];
 String userimage = "images/avatars/1.png";
+String userimageasset = "";
