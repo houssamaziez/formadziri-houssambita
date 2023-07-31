@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:formadziri/pages/uploadphoto.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,11 +60,25 @@ class _EditProfileState extends State<EditProfile> {
             Center(
               child: Column(
                 children: [
-                  Image.asset(
-                    userimage,
-                    width: 100,
-                    height: 100,
-                  ),
+                  userimageasset == ""
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(1000),
+                          child: Image.asset(
+                            File(userimage).path,
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(1000),
+                          child: Image.file(
+                            File(userimageasset),
+                            fit: BoxFit.cover,
+                            width: 100,
+                            height: 100,
+                          ),
+                        ),
                   const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.only(left: 0, right: 0),
@@ -149,6 +165,7 @@ class _EditProfileState extends State<EditProfile> {
                 onTap: () {
                   setState(() {
                     userimage = imag;
+                    userimageasset = "";
                     print(userimage);
                   });
                 },

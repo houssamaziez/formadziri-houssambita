@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:formadziri/mainpages/editprofile.dart';
 import 'package:formadziri/mainpages/languageselect.dart';
@@ -45,11 +47,25 @@ class _ProfileState extends State<Profile> {
                 padding: const EdgeInsets.only(right: 8),
                 child: IconButton(
                   onPressed: (() {}),
-                  icon: Image.asset(
-                    userimage,
-                    width: 50,
-                    height: 50,
-                  ),
+                  icon: userimageasset == ""
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(1000),
+                          child: Image.asset(
+                            File(userimage).path,
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(1000),
+                          child: Image.file(
+                            File(userimageasset),
+                            fit: BoxFit.cover,
+                            width: 50,
+                            height: 50,
+                          ),
+                        ),
                 ),
               ),
               RichText(

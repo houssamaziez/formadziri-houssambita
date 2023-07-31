@@ -26,7 +26,7 @@ class _UploadPhotoState extends State<UploadPhoto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: Column(
         children: [
           Container(
             height: 100,
@@ -47,27 +47,6 @@ class _UploadPhotoState extends State<UploadPhoto> {
           const SizedBox(
             height: 15,
           ),
-          // Center(
-          //   child: Container(
-          //       height: 140,
-          //       width: 140,
-          //       decoration: userimage == ""
-          //           ? BoxDecoration(
-          //               color: Color(0xFFCFE5CD),
-          //               borderRadius: BorderRadius.all(Radius.circular(100)),
-          //             )
-          //           : BoxDecoration(
-          //               color: Color(0xFFCFE5CD),
-          //               borderRadius: BorderRadius.all(Radius.circular(100)),
-          //               image: DecorationImage(image: AssetImage(userimage))),
-          //       child: userimage == ""
-          //           ? const Icon(
-          //               Icons.camera_alt_rounded,
-          //               size: (45),
-          //               color: FormaColors.mediumgreen,
-          //             )
-          //           : Container()),
-          // ),
           Center(
             child: Container(
               height: 140,
@@ -97,7 +76,6 @@ class _UploadPhotoState extends State<UploadPhoto> {
                   : Container(),
             ),
           ),
-
           const SizedBox(
             height: 15,
           ),

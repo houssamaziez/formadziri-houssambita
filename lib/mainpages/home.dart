@@ -54,17 +54,23 @@ class Home extends StatelessWidget {
               child: IconButton(
                 onPressed: (() {}),
                 icon: userimageasset == ""
-                    ? Image.asset(
-                        File(userimage).path,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.circular(1000),
+                        child: Image.asset(
+                          File(userimage).path,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
                       )
-                    : Image.file(
-                        File(userimageasset),
-                        fit: BoxFit.cover,
-                        width: 50,
-                        height: 50,
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(1000),
+                        child: Image.file(
+                          File(userimageasset),
+                          fit: BoxFit.cover,
+                          width: 50,
+                          height: 50,
+                        ),
                       ),
               ),
             )
