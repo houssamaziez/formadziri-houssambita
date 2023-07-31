@@ -16,7 +16,7 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int index = 0;
   final screens = [
-    const Home(),
+    Home(),
     const Search(),
     const Podcasts(),
     const Profile(),
