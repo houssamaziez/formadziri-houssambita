@@ -5,7 +5,7 @@ import 'package:formadziri/BDD/Model/sessions.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_autocomplete_formfield/simple_autocomplete_formfield.dart';
 
-import '../BDD/Controllers/test2.dart';
+import '../BDD/Controllers/AllGetdata.dart';
 import '../BDD/Model/Courses.dart';
 import 'form.dart';
 
@@ -38,6 +38,8 @@ class _PaymentState extends State<Payment> {
     try {
       List<sessions> session =
           await GetDattApi().getSessionData(widget.data.id!);
+      print('${session.length}');
+
       setState(() {
         datasessions = session;
       });

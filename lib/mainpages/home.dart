@@ -8,7 +8,7 @@ import 'package:formadziri/pages/uploadphoto.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:swipe_refresh/swipe_refresh.dart';
 
-import '../BDD/Controllers/test2.dart';
+import '../BDD/Controllers/AllGetdata.dart';
 import '../BDD/Model/home.dart';
 import '../comp/hero.dart';
 import '../comp/lang_row.dart';

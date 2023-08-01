@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formadziri/BDD/Controllers/test2.dart';
+import 'package:formadziri/BDD/Controllers/AllGetdata.dart';
 
 import 'package:formadziri/BDD/Model/home.dart';
 

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -5,8 +6,7 @@ import 'package:formadziri/courses/couresid.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../BDD/Controllers/test2.dart';
-
+import '../BDD/Controllers/AllGetdata.dart';
 
 class HeroSdec extends StatefulWidget {
   HeroSdec({Key? key}) : super(key: key);
@@ -134,11 +134,23 @@ StreamBuilder newMethod() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              child: Image.network(
-                snapshot.data["image"].toString(),
-                fit: BoxFit.cover,
-              ),
-            ),
+                child: CachedNetworkImage(
+              imageUrl: snapshot.data["image"].toString(),
+              width: double.infinity,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => Center(
+                child: ClipRRect(
+                  child: Image.asset(
+                    "assets/images/loedingimg.gif",
+                    width: double.infinity,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ), // Optional: Show a placeholder while loading.
+              errorWidget: (context, url, error) => Icon(Icons
+                  .error), // Optional: Show an error icon if the image fails to load.
+            )),
             const SizedBox(
               height: 10,
             ),

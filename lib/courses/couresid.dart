@@ -1,12 +1,8 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:formadziri/BDD/Controllers/test2.dart';
+import 'package:formadziri/BDD/Controllers/AllGetdata.dart';
 import 'package:formadziri/courses/course.dart';
 
-
 import '../BDD/Model/Courses.dart';
-
 
 class CourseID extends StatelessWidget {
   const CourseID({

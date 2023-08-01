@@ -4,7 +4,7 @@ import 'package:formadziri/BDD/Model/Teachers.dart';
 import 'package:get/get.dart';
 
 import '../../comp/on_boarding_content.dart';
-import '../Controllers/test2.dart';
+import '../Controllers/AllGetdata.dart';
 import 'User.dart';
 
 class SubCategoriesSections {

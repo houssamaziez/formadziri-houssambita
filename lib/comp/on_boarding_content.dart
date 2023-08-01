@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../BDD/Controllers/test2.dart';
+import '../BDD/Controllers/AllGetdata.dart';
 import '../BDD/Model/User.dart';
 import '../BDD/Model/home.dart';
 

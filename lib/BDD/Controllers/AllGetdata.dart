@@ -19,7 +19,7 @@ import '../Model/supcatgr2.dart';
 
 class GetDattApi {
   Future<List<dynamic>> fetchData({required String Url}) async {
-    final String token = '38|1yhnXa7VrRYL0zv5cdvUN2If8esbdQd8oHrGrIsS';
+    final String token = '46|2dHUX6U7BhFjBrWDD4yBzueXHcyCZTeclIomwZCO';
 //15|fpjoZUfGK0WAJa2DCRqxeUi3lhqp7qiCSdqL8ig4
     final dio = Dio();
     dio.options.headers['Authorization'] = 'Bearer $token';
