@@ -60,7 +60,7 @@ class _CategoriesWrapState extends State<CategoriesWrap> {
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          List<Category> categories = snapshot.data!;
+          List<Category> categoriese = snapshot.data!;
 
           return Padding(
             padding: const EdgeInsets.only(left: 0, right: 0),
@@ -73,7 +73,7 @@ class _CategoriesWrapState extends State<CategoriesWrap> {
                   children: [
                     Row(
                       children: [
-                        for (var category in categories)
+                        for (var category in categoriese)
                           Padding(
                             padding: EdgeInsets.only(right: 8.0),
                             child: OutlinedButton(
@@ -84,6 +84,10 @@ class _CategoriesWrapState extends State<CategoriesWrap> {
                                 ),
                               ),
                               onPressed: () {
+                                category.subCategories!.forEach((element) {
+                                  print(element.course);
+                                });
+
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

@@ -1,7 +1,7 @@
 class UrlApi {
   static const hostUrl = "https://formadziri-admin.com/api";
 
-  static const categorie = "$hostUrl/categories/all";
+  static const categorie = "https://formadziri-admin.com/api/categories/all";
   static const users = "$hostUrl/users/";
   static const subcategories = "$hostUrl/sub-categories/all";
   static const topcategories = "$hostUrl/top-categories/";
@@ -14,5 +14,5 @@ class UrlApi {
   static const students = "$hostUrl/students";
   static const sections = "$hostUrl/sections";
   static const subcategoriessections =
-      "$hostUrl/sub-categories-sections/getSubCategories";
+      "https://formadziri-admin.com/api/sub-categories-sections/";
 }

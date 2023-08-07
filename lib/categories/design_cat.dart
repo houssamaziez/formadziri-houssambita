@@ -18,7 +18,7 @@ class DesignCat extends StatefulWidget {
   @override
   State<DesignCat> createState() => _DesignCatState();
 }
- 
+
 class _DesignCatState extends State<DesignCat> {
   @override
   List<Course> filteredSubCategories = [];

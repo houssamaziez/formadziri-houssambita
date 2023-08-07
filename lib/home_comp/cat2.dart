@@ -15,6 +15,7 @@ class Cat2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(data.category!.subCategories![0].course!);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
